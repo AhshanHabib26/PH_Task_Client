@@ -11,6 +11,20 @@ const BillingModal = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    let today = new Date();
+    let day = today.getDate();
+
+    let month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    if (day < 10) {
+      day = `0${day}`;
+    }
+
+    if (month < 10) {
+      month = `0${month}`;
+    }
+    today = `${day}-${month}-${year}`;
+
     const BillingData = {
       name: data.name,
       email: data.email,
