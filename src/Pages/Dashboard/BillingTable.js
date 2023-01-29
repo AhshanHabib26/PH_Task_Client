@@ -6,7 +6,7 @@ import Spinner from '../../Components/Spinner/Spinner';
 
 const BillingTable = ({ inputSearchData, pageNum }) => {
   const { data, isLoading, refetch } = useQuery(['billing-list', pageNum], () =>
-    fetch(`http://localhost:5000/billing-list?pageNumber=${pageNum}`, {
+    fetch(`http://localhost:5000/billing-list?pageNum=${pageNum}`, {
       headers: {
         'content-type': 'application/json',
         authorization: `bearer ${localStorage.getItem('accessToken')}`,

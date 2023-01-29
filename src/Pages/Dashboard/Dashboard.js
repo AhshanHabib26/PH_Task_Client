@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 
 const Dashboard = () => {
   return (
-    <div className=" bg-slate-800 h-screen">
+    <div>
       <Navbar />
       <SearchBar />
       <BillingModal />
