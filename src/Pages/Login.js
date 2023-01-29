@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <div className=" px-5 lg:px-0 flex items-center bg-slate-800 min-h-screen">
       {loading && <Spinner />}
-      <div class="card  mx-auto bg-base-100 border">
+      <div className="card  mx-auto bg-base-100 border">
         <div className="card-body">
           <h1 className=" text-3xl mt-[-10px] font-bold text-slate-700">
             Login
