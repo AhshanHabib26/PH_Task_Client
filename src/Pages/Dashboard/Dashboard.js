@@ -6,7 +6,7 @@ import SearchBar from './SearchBar';
 
 const Dashboard = () => {
   const { data, isLoading, refetch } = useQuery('total-billing-amount', () =>
-    fetch(`http://localhost:5000/total-payable-amount`, {
+    fetch(`https://ph-task-server.vercel.app/total-payable-amount`, {
       headers: {
         'content-type': 'application/json',
         authorization: `bearer ${localStorage.getItem('accessToken')}`,
@@ -14,7 +14,7 @@ const Dashboard = () => {
     }).then((res) => res.json())
   );
   if (isLoading) {
-    return;
+    return <p>Wait...</p> ;
   }
 
   return (

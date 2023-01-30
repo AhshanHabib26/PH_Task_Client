@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [inputSearchData, setInputSearchData] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5000/totalDataCount', {
+    fetch('https://ph-task-server.vercel.app/totalDataCount', {
       headers: {
         'content-type': 'application/json',
         authorization: `bearer ${localStorage.getItem('accessToken')}`,

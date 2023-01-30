@@ -6,7 +6,7 @@ import Spinner from '../../Components/Spinner/Spinner';
 
 const BillingTable = ({ inputSearchData, pageNum }) => {
   const { data, isLoading, refetch } = useQuery(['billing-list', pageNum], () =>
-    fetch(`http://localhost:5000/billing-list?pageNum=${pageNum}`, {
+    fetch(`https://ph-task-server.vercel.app/billing-list?pageNum=${pageNum}`, {
       headers: {
         'content-type': 'application/json',
         authorization: `bearer ${localStorage.getItem('accessToken')}`,
@@ -15,7 +15,7 @@ const BillingTable = ({ inputSearchData, pageNum }) => {
   );
 
   const handleDeleteBilling = (id) => {
-    fetch(`http://localhost:5000/delete-billing/${id}`, {
+    fetch(`https://ph-task-server.vercel.app/delete-billing/${id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

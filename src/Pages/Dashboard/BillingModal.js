@@ -18,7 +18,7 @@ const BillingModal = ({ refetch }) => {
       paidAmount: data.paidAmount,
     };
 
-    fetch('http://localhost:5000/add-billing', {
+    fetch('https://ph-task-server.vercel.app/add-billing', {
       method: 'POST',
       body: JSON.stringify(BillingData),
       headers: {
