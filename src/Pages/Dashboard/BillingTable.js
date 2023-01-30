@@ -1,8 +1,8 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
 import Spinner from '../../Components/Spinner/Spinner';
+
 
 const BillingTable = ({ inputSearchData, pageNum }) => {
   const { data, isLoading, refetch } = useQuery(['billing-list', pageNum], () =>
@@ -62,9 +62,9 @@ const BillingTable = ({ inputSearchData, pageNum }) => {
                         <td>{item.phone}</td>
                         <td>${item.paidAmount}</td>
                         <td>
-                          <Link to="/" className="btn  bg-slate-800 btn-sm">
+                          <button className="btn  bg-slate-800 btn-sm">
                             Edit
-                          </Link>
+                          </button>
                           <button
                             onClick={() => handleDeleteBilling(item._id)}
                             className="btn  ml-3 bg-slate-800 btn-sm"
