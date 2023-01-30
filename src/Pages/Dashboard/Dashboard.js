@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Spinner from '../../Components/Spinner/Spinner';
 import BillingModal from './BillingModal';
 import Navbar from './Navbar';
 import SearchBar from './SearchBar';
@@ -14,7 +15,7 @@ const Dashboard = () => {
     }).then((res) => res.json())
   );
   if (isLoading) {
-    return <p>Wait...</p> ;
+    return <Spinner />;
   }
 
   return (
