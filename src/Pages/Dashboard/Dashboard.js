@@ -14,12 +14,12 @@ const Dashboard = () => {
     }).then((res) => res.json())
   );
   if (isLoading) {
-    return <p>Wait.......</p>;
+    return;
   }
 
   return (
     <div>
-      <Navbar data={data} />
+      <Navbar refetch={refetch} data={data?.totalAmount} />
       <SearchBar />
       <BillingModal refetch={refetch} />
     </div>

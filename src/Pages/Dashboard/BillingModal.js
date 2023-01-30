@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
-const BillingModal = ({refetch}) => {
+const BillingModal = ({ refetch }) => {
   const {
     register,
     formState: { errors },
@@ -23,6 +23,7 @@ const BillingModal = ({refetch}) => {
       body: JSON.stringify(BillingData),
       headers: {
         'content-type': 'application/json',
+        authorization: `bearer ${localStorage.getItem('accessToken')}`,
       },
     })
       .then((res) => res.json())
@@ -30,7 +31,7 @@ const BillingModal = ({refetch}) => {
         if (result.insertedId !== 0) {
           toast.success('Your Billing Data is Added');
           reset();
-          refetch()
+          refetch();
         } else {
           toast.error(result.message);
         }
