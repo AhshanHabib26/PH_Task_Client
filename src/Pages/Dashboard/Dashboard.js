@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Spinner from '../../Components/Spinner/Spinner';
-import BillingModal from './BillingModal';
 import Navbar from './Navbar';
 import SearchBar from './SearchBar';
 
@@ -22,7 +21,6 @@ const Dashboard = () => {
     <div>
       <Navbar refetch={refetch} data={data?.totalAmount} />
       <SearchBar />
-      <BillingModal refetch={refetch} />
     </div>
   );
 };

@@ -1,0 +1,12 @@
+.BillingContainer{
+    position: relative !important;
+    z-index: 100;
+}
+.BillingWrapper{
+    position:  absolute;
+    content: "";
+    top: 30%;
+    left: 30%;
+    scroll-behavior: auto;
+    
+}

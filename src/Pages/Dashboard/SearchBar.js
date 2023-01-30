@@ -3,6 +3,7 @@ import BillingPagination from './BillingPagination';
 import BillingTable from './BillingTable';
 
 const SearchBar = () => {
+  const [billModal, setBillModal] = useState(false);
   const [totalPage, setTotalPage] = useState(0);
   const [pageNum, setPageNum] = useState(0);
   const [inputSearchData, setInputSearchData] = useState('');
@@ -37,16 +38,16 @@ const SearchBar = () => {
               }
             />
           </div>
-          <label
-            htmlFor="billing-modal"
+          <button
+            onClick={() => setBillModal(true)}
             className=" btn bg-orange-600 rounded-lg cursor-pointer text-white"
           >
             Add New Bill
-          </label>
+          </button>
         </div>
-        
       </div>
-      <BillingTable inputSearchData={inputSearchData} pageNum={pageNum} />
+      <BillingTable  billModal={billModal}
+        setBillModal={setBillModal} inputSearchData={inputSearchData} pageNum={pageNum} />
       <BillingPagination totalPage={totalPage} setPageNum={setPageNum} />
     </div>
   );

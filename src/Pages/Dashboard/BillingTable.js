@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useQuery } from 'react-query';
 import Spinner from '../../Components/Spinner/Spinner';
+import BillingModel from './BillingModel';
 
+const BillingTable = ({
+  billModal,
+  setBillModal,
+  inputSearchData,
+  pageNum,
+}) => {
+  const [updateData, setUpdateData] = useState({});
 
-const BillingTable = ({ inputSearchData, pageNum }) => {
   const { data, isLoading, refetch } = useQuery(['billing-list', pageNum], () =>
     fetch(`https://ph-task-server.vercel.app/billing-list?pageNum=${pageNum}`, {
       headers: {
@@ -35,6 +42,15 @@ const BillingTable = ({ inputSearchData, pageNum }) => {
 
   return (
     <div>
+      {billModal && (
+        <BillingModel
+          setUpdateData={setUpdateData}
+          updateData={updateData}
+          refetch={refetch}
+          setBillModal={setBillModal}
+        />
+      )}
+
       <div className="max-w-7xl mt-5 mx-auto">
         <div className="overflow-x-auto">
           <table className="table table-zebra w-full">
@@ -62,7 +78,13 @@ const BillingTable = ({ inputSearchData, pageNum }) => {
                         <td>{item.phone}</td>
                         <td>${item.paidAmount}</td>
                         <td>
-                          <button className="btn  bg-slate-800 btn-sm">
+                          <button
+                            onClick={() => {
+                              setUpdateData(item);
+                              setBillModal(true);
+                            }}
+                            className="btn  bg-slate-800 btn-sm"
+                          >
                             Edit
                           </button>
                           <button
